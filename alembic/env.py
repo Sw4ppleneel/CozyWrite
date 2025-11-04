@@ -18,7 +18,10 @@ from CozyWrites.Models import Base
 config = context.config
 
 ## used to overwrite the .ini file.
-config.set_main_option("sqlalchemy.url" , f'postgresql+psycopg://{settings.database_username}:{settings.database_password}@{settings.database_hostname}/{settings.database_name}')
+# Tell Alembic to read the DATABASE_URL from Render's environment
+# instead of from alembic.ini
+database_url = os.getenv("DATABASE_URL")
+config.set_main_option("sqlalchemy.url", database_url)
 
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.
