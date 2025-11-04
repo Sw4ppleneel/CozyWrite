@@ -7,8 +7,8 @@ from .config import settings
 sql_alchemy_db_url = f'postgresql+psycopg://{settings.database_username}:{settings.database_password}@{settings.database_hostname}/{settings.database_name}'
 
 engine = create_engine(sql_alchemy_db_url)
+SessionLocal = sessionmaker(autocommit=False , autoflush=False , bind=engine)
 
-SessionLocal = sessionmaker(autoflush=False, bind=engine)
 
 #sql_alchemy_db_url = 'postgresql://<username>:<pass>@<ip_address/hostname>/<dbname>'
 
