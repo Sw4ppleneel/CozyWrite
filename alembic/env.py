@@ -7,8 +7,8 @@ from alembic import context
 
 
 #my imports
-from FastAPI.config import settings
-from FastAPI.Models import Base
+from  CozyWrites.config import settings
+from CozyWrites.Models import Base
 
 
 
