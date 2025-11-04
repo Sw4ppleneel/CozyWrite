@@ -1,4 +1,47 @@
 # Created by venv; see https://docs.python.org/3/library/venv.html
 .env
-__pycache__
+.env.*           # local env variations
 .venv
+venv/
+
+# Python caches / compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Test / coverage
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+.pytest_cache/
+
+# Type check caches
+.mypy_cache/
+.pyrightcache/
+
+# Database and local files
+*.sqlite3
+*.db
+*.db-journal
+
+# Alembic local env cache (if you create one)
+alembic.ini.local
+
+# Editor / OS files
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Logs
+*.log
+
+# Build / packaging
+build/
+dist/
+*.egg-info/
+
+# Node (if present)
+node_modules/
