@@ -4,7 +4,6 @@ from dotenv import load_dotenv
 from pydantic import Field
 
 env_path = Path(__file__).resolve().parent / ".env"
-# load local .env only when present (for local dev)
 if env_path.exists():
     load_dotenv(env_path)
 
