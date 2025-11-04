@@ -29,7 +29,7 @@ def hash_data(data_string, algorithm='sha256'):
 
 
 #Imports the model into the binded db through the url
-# Models.Base.metadata.create_all(bind = engine)
+Models.Base.metadata.create_all(bind = engine)
 
 
 #Session is responsible for talking to the db 
