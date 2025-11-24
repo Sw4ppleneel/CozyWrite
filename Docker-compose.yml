@@ -1,0 +1,46 @@
+version: '3.8'
+services:
+
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_HOSTNAME=postgres
+      - DATABASE_PORT=5432
+      - DATABASE_PASSWORD=sw4pneel
+      - DATABASE_USERNAME=postgres
+      - DATABASE_NAME=fastapi
+      - SECRET_KEY=6904a12d5027d17d564e51aeb3f1e2b6110ad29254ecaaa10ad8bf0c04acdc2c
+      - ALGORITHM=HS256
+      - ACCESS_TOKEN_EXPIRE_MINS=30
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - app-network
+
+  postgres:
+    image: postgres:13
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=sw4pneel
+      - POSTGRES_DB=fastapi
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - app-network
+
+volumes:
+  postgres_data: {}
+
+networks:
+  app-network:
+    driver: bridge

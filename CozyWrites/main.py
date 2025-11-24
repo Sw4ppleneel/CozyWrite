@@ -48,15 +48,22 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-while True:
-    try:
-        conn = psycopg.connect(host='localhost', dbname = 'fastapi', user='postgres', password='sw4pneel', port = 5432)
-        cursor = conn.cursor(row_factory=psycopg.rows.dict_row)
-        print("Database connection was successful!")
-        break
-    except Exception as e:
-        print("Error connecting to the database:", e)
-        time.sleep(2)
+# while True:
+#     try:
+#         conn = psycopg.connect(host='localhost', dbname = 'fastapi', user='postgres', password='sw4pneel', port = 5432)
+#         cursor = conn.cursor(row_factory=psycopg.rows.dict_row)
+#         print("Database connection was successful!")
+
+#         # ensure SQLAlchemy tables exist after DB is reachable
+#         try:
+#             Models.Base.metadata.create_all(bind=engine)
+#         except Exception as e:
+#             print("Warning: create_all failed:", e)
+
+#         break
+#     except Exception as e:
+#         print("Error connecting to the database:", e)
+#         time.sleep(2)
 
 # root path
 @app.get("/")

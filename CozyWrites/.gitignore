@@ -45,3 +45,9 @@ dist/
 
 # Node (if present)
 node_modules/
+
+# SSH keys
+*.pem
+*.pub
+pvtkey 
+.env.pub
