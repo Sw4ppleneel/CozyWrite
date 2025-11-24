@@ -68,7 +68,7 @@ app.add_middleware(
 # root path
 @app.get("/")
 def read_root():
-    return {"Hello": "Welcome to FastAPI!"}
+    return {"Hello": "Welcome to CozyWrites , Login at /docs for API documentation!"}
 
 from .routers import users, posts, auth , vote  # or: from .routers import users, posts; from .routers import auth
 
