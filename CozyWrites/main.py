@@ -1,4 +1,4 @@
-from fastapi import Body, FastAPI, Response, status, HTTPException , Depends
+from fastapi import Body, FastAPI, Response, status, HTTPException , Depends, APIRouter
 from pydantic import BaseModel, Field
 from random import randrange
 from datetime import datetime
@@ -69,7 +69,6 @@ app.add_middleware(
 @app.get("/")
 def read_root():
     return {"Hello": "Welcome to CozyWrites , Login at /docs for API documentation!"}
-
 from .routers import users, posts, auth , vote  # or: from .routers import users, posts; from .routers import auth
 
 
